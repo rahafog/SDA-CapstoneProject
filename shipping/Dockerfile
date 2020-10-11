@@ -1,17 +1,15 @@
+FROM maven as build
 
-FROM bryandollery/maven-repo as build
-WORKDIR /tmp
+copy . /shipping
+WORKDIR /shipping
+RUN mvn -DskipTests package
 
-copy src /tmp/src
-copy pom.xml /tmp/
 
-run mvn clean package
+FROM weaveworksdemos/msd-java:jre-latest
 
-from adoptopenjdk/openjdk11:alpine
+COPY --from=build /shipping/target/*.jar ./app.jar
 
-COPY --from=build /tmp/target/shipping*.jar /shipping.jar
-
-run chmod a+rwx ./shipping.jar
+RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
 
 USER ${SERVICE_USER}
 
