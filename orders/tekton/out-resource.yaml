@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: orders-docker
+spec:
+  type: image
+  params:
+    - name: url
+      value: rahafog1/orders1
+
