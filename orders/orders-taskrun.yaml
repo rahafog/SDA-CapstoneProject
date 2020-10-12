@@ -1,20 +1,16 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: build-docker-image-task-run
+  name: orders-taskrun
 spec:
   serviceAccountName: build-bot
   taskRef:
     name: build-docker-image
   params:
-    - name: pathToDockerFile 
-      value: Dockerfile
+  - name: IMAGE
+    value: "rahafog1/orders"
   resources:
-    inputs: 
-      - name : docker-source
-        resourceRef:
-          name: orders
-    outputs:
-      - name:  builtImage
-        resourceRef:
-          name: orders-image
+    inputs:
+    - name: orders
+      resourceRef:
+        name: orders
