@@ -108,7 +108,7 @@ fabric.properties
 
 # AWS ECS install scripts generates an SSH key file
 weave-ecs-demo-key.pem
-
+secret.yaml
 # Load test generates pyc files
 *.pyc
 
