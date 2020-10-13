@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: docker-runner
+spec:
+  serviceAccountName: docker1
+  taskRef:
+    name: shipping
+  params:
+  - name: IMAGE
+    value: "rahafog1/shipping"
+  resources:
+    inputs :
+    - name: level3project
+      resourceRef: 
+        name: level3project
