@@ -11,6 +11,6 @@ spec:
     value: "rahafog1/shipping"
   resources:
     inputs :
-    - name: level3project
+    - name: shipping-resource
       resourceRef: 
-        name: level3project
+        name: shipping-resource

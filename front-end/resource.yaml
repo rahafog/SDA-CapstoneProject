@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: orders-resource
+  name: front-resource
 spec:
-  type: git 
+  type: git
   params:
-    - name:  revision
+    - name: revision 
       value: main
     - name: url
       value: https://github.com/rahafog/level3project.git
