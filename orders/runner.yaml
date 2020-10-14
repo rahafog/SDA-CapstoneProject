@@ -1,16 +1,16 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: docker-runner
+  name: orders-runner
 spec:
-  serviceAccountName: docker2
+  serviceAccountName: docker1
   taskRef:
     name: orders
   params:
   - name: IMAGE
     value: "rahafog1/orders"
   resources:
-    inputs :
-    - name: level3project
+    inputs : 
+    - name: orders-resource
       resourceRef: 
-        name: level3project
+        name: orders-resource
