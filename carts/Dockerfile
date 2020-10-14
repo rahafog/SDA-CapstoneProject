@@ -26,5 +26,4 @@ RUN     chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./carts.jar
 
 USER ${SERVICE_USER}
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]
-~                                                                                                 
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]                                                                                             
