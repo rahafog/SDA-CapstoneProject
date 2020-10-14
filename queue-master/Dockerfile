@@ -3,6 +3,10 @@ FROM maven:3-jdk-8 as build
 WORKDIR /tmp
 copy src /tmp/src
 copy pom.xml /tmp/
+<<<<<<< HEAD
+=======
+RUN mvn clean package
+>>>>>>> 7a978f3eb4e50faca64c329ceeb0960de3cca7db
 
 FROM java:openjdk-8-alpine
 COPY --from=build /tmp/target/queue-master.jar /queue-master.jar
