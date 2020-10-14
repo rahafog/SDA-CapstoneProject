@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: docker-runner
+  name: payment-runner
 spec:
   serviceAccountName: docker1
   taskRef:
@@ -10,7 +10,7 @@ spec:
   - name: IMAGE
     value: "rahafog1/payment"
   resources:
-    inputs :
-    - name: level3project
+    inputs : 
+    - name: payment-resource
       resourceRef: 
-        name: level3project
+        name: payment-resource
