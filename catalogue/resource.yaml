@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: level3project
+  name: catalogue-resource
 spec:
   type: git
   params:
     - name: revision
       value: main
     - name: url
-      value: https://github.com/rahafog/SDA-level3project.git
+      value: https://github.com/rahafog/level3project.git
