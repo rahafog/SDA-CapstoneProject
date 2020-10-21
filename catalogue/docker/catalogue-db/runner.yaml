@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: catalogue-db-runner
+spec:
+  serviceAccountName: docker1
+  taskRef:
+    name: catalogue-db
+  params:
+  - name: IMAGE
+    value: "rahafog1/catalogue-db"
+  resources:
+    inputs :  
+    - name: level3project
+      resourceRef:  
+        name: catalogue-db-resource
