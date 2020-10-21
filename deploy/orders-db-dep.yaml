@@ -6,7 +6,7 @@ metadata:
   labels:
     name: orders-db
 spec:
- selector:
+  selector:
     matchLabels:
       name: orders-db
   replicas: 1
@@ -20,6 +20,7 @@ spec:
         image: mongo
         ports:
         - name: mongo
+          containerPort: 27017
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
