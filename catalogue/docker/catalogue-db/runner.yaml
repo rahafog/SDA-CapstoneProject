@@ -11,6 +11,6 @@ spec:
     value: "rahafog1/catalogue-db"
   resources:
     inputs :  
-    - name: level3project
+    - name: catalogue-db-resource
       resourceRef:  
         name: catalogue-db-resource
