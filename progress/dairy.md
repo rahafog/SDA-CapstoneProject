@@ -13,8 +13,8 @@ Day 4:
 Finally, I got all Dockerfiles running locally successfully.
 
 Day 5:
-start using k3d and tekton to automate the build and push each service's image and I got errors in specifying the path to resources and to my project GitHub repository.
+Start using k3d and tekton to automate the build and push each service's image to the DockerHub and I got errors in specifying the path to resources and to my project's GitHub repository.
 
 Day 6:
-complete the working in tekton and try to solve the errors.
+Complete the working in tekton and try to solve the errors.
 
