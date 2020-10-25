@@ -12,5 +12,5 @@ Day 5
 
 ![image](https://user-images.githubusercontent.com/46724031/96134343-e9fe2e80-0f03-11eb-907e-3f5fc317b21f.png)
 
-Day 6:
-![image](https://user-images.githubusercontent.com/46724031/97109591-1e80a000-16e5-11eb-90e1-56ed21f4561a.png)
+Day 6,7
+![image](https://user-images.githubusercontent.com/46724031/97109636-5e478780-16e5-11eb-9242-53d483d09434.png)
