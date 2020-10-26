@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: queue-runner
+spec:
+  serviceAccountName: docker1
+  taskRef:
+    name: queue-master
+  params:
+  - name: IMAGE
+    value: "rahafog1/queue-master"
+  resources:
+    inputs : 
+    - name: queue-resource
+      resourceRef: 
+        name: queue-resource
