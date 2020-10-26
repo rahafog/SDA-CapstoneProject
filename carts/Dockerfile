@@ -8,6 +8,7 @@ FROM java:openjdk-8-alpine
 COPY --from=build /tmp/target/carts.jar /carts.jar
 
 
+<<<<<<< HEAD
 ENV	SERVICE_USER=myuser \
 	SERVICE_UID=10001 \
 	SERVICE_GROUP=mygroup \
@@ -27,3 +28,28 @@ RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./carts.jar
 USER ${SERVICE_USER}
 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]
+=======
+ENV     SERVICE_USER=myuser \
+        SERVICE_UID=10001 \
+        SERVICE_GROUP=mygroup \
+        SERVICE_GID=10001
+
+RUN     addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} && \
+        adduser -g "${SERVICE_NAME} user" -D -H -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} && \
+        apk add --update libcap && \
+        mkdir /lib64 && \
+        ln -s /usr/lib/jvm/java-1.8-openjdk/jre/lib/amd64/server/libjvm.so /lib/libjvm.so && \
+        ln -s /usr/lib/jvm/java-1.8-openjdk/lib/amd64/jli/libjli.so /lib/libjli.so && \
+        setcap 'cap_net_bind_service=+ep' $(readlink -f $(which java))
+
+
+RUN     chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./carts.jar
+
+USER ${SERVICE_USER}
+
+<<<<<<< HEAD
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]                                                                                                 
+=======
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]                                                                                             
+>>>>>>> 53760e6a524047a5a7bc54d96b8f0633c3da4493
+>>>>>>> ea082acef8e0c307f9609ac54ead91c384374b2c

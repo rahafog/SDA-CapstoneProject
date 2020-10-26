@@ -1,7 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
+<<<<<<< HEAD:queue-master/runner.yaml~4b1a1a550c13a7608b181034a62c1738eb4e36e8
   name: queue-runner
+=======
+  name: carts-runner
+>>>>>>> ea082acef8e0c307f9609ac54ead91c384374b2c:carts/runner.yaml
 spec:
   serviceAccountName: docker1
   taskRef:
@@ -11,6 +15,12 @@ spec:
     value: "rahafog1/queue-master"
   resources:
     inputs : 
+<<<<<<< HEAD:queue-master/runner.yaml~4b1a1a550c13a7608b181034a62c1738eb4e36e8
     - name: queue-resource
       resourceRef: 
         name: queue-resource
+=======
+    - name: carts-resource
+      resourceRef: 
+        name: carts-resource
+>>>>>>> ea082acef8e0c307f9609ac54ead91c384374b2c:carts/runner.yaml
