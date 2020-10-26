@@ -102,5 +102,3 @@ spec:
     targetPort: 80
   selector:
     name: catalogue
-~       
-~

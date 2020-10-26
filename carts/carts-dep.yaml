@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -43,8 +42,7 @@ spec:
   - port: 27017
     targetPort: 27017
   selector:
-    name: carts-db
-~                       
+    name: carts-db                      
 ---
 apiVersion: apps/v1
 kind: Deployment
