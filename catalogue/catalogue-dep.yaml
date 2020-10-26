@@ -2,6 +2,50 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: catalogue-db
+  labels:
+    name: catalogue-db
+spec:
+  selector:
+    matchLabels:
+      name: catalogue-db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: catalogue-db
+    spec:
+      containers:
+      - name: catalogue-db
+        image: rahafog1/catalogue-db
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: fake_password
+          - name: MYSQL_DATABASE
+            value: socksdb
+        ports:
+        - name: mysql
+          containerPort: 3306
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue-db
+  labels:
+    name: catalogue-db
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 3306
+    targetPort: 3306
+  selector:
+    name: catalogue-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: catalogue
   labels:
     name: catalogue
@@ -9,9 +53,9 @@ spec:
   selector:
     matchLabels:
       name: catalogue
-  replicas: 1 
+  replicas: 1
   template:
-    metadata: 
+    metadata:
       labels:
         name: catalogue
     spec:
@@ -43,3 +87,20 @@ spec:
           periodSeconds: 3
       nodeSelector:
         beta.kubernetes.io/os: linux
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue
+  labels:
+    name: catalogue
+spec:
+  type: NodePort
+  ports:
+    # the port that this service should serve on
+  - port: 80
+    targetPort: 80
+  selector:
+    name: catalogue
+~       
+~
