@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: front-pipelinerun 
+spec:
+  pipelineRef:
+    name: front-end-pipeline
+  resources:
+    - name: front-resource
+      resourceRef:
+        name: front-resource
+  params:
+    - name: CONTEXT
+      value: "/workspace/front-resource/front-end"
+    - name: DOCKERFILE
+      value: "/workspace/front-resource/front-end/Dockerfile"
+    - name: pathToYamlFile
+      value: "front-resource/front-end/front-end-dep.yaml"
+    - name: imageUrl
+      value: "rahafog1/front-end"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "rahafog1/front-end"
+      
+  serviceAccountName: docker1
