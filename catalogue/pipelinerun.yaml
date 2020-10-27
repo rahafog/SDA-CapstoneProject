@@ -1,0 +1,31 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: catalogue-pipelinerun 
+spec:
+  pipelineRef:
+    name: catalogue-pipeline
+  resources:
+    - name: catalogue-resource
+      resourceRef:
+        name: catalogue-resource
+  params:
+    - name: IMAGE-db
+      value: "rahafog1/catalogue-db"
+    - name: IMAGE
+      value: "rahafog1/catalogue"
+    - name: pathToYamlFile
+      value: "catalogue-resource/catalogue/catalogue-dep.yaml"
+    - name: imageUrl
+      value: "rahafog1/catalogue"
+    - name: imageTag
+      value: "latest"
+    - name: pathToYamlFile-db
+      value: "catalogue-resource/catalogue/catalogue-db-dep.yaml"
+    - name: imageUrl-db
+      value: "rahafog1/catalogue-db"
+    - name: imageTag-db
+      value: "latest"
+      
+  serviceAccountName: docker1

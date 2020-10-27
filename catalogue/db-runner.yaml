@@ -11,6 +11,6 @@ spec:
     value: "rahafog1/catalogue-db"
   resources:
     inputs :  
-    - name: catalogue-db-resource
+    - name: catalogue-resource
       resourceRef:  
-        name: catalogue-db-resource
+        name: catalogue-resource
