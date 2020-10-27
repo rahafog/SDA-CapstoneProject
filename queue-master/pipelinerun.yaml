@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: queue-pipelinerun 
+spec:
+  pipelineRef:
+    name: queue-pipeline
+  resources:
+    - name: queue-resource
+      resourceRef:
+        name: queue-resource
+  params:
+    - name: CONTEXT
+      value: "/workspace/queue-resource/queue-master"
+    - name: DOCKERFILE
+      value: "/workspace/queue-resource/queue-master/Dockerfile"
+    - name: pathToYamlFile
+      value: "queue-resource/queue-master/queue-master-dep.yaml"
+    - name: imageUrl
+      value: "rahafog1/queue-master"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "rahafog1/queue-master"
+      
+  serviceAccountName: docker1
