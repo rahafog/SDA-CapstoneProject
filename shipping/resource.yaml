@@ -8,4 +8,4 @@ spec:
     - name: revision 
       value: main
     - name: url
-      value: https://github.com/rahafog/level3project.git
+      value: https://github.com/rahafog/level3project

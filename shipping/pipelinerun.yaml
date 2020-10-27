@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: shipping-pipelinerun 
+spec:
+  pipelineRef:
+    name: shipping-pipeline
+  resources:
+    - name: shipping-resource
+      resourceRef:
+        name: shipping-resource
+  params:
+    - name: CONTEXT
+      value: "/workspace/shipping-resource/shipping"
+    - name: DOCKERFILE
+      value: "/workspace/shipping-resource/shipping/Dockerfile"
+    - name: pathToYamlFile
+      value: "shipping-resource/shipping/shipping-dep.yaml"
+    - name: imageUrl
+      value: "rahafog1/shipping"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "rahafog1/shipping"
+      
+  serviceAccountName: docker1
