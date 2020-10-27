@@ -1,55 +1,31 @@
 FROM maven:3-jdk-8 as build
 WORKDIR /tmp
+
 copy src /tmp/src
 copy pom.xml /tmp/
-RUN mvn clean package
 
-FROM java:openjdk-8-alpine
+run mvn clean package
+
+from adoptopenjdk/openjdk8:alpine
+
 COPY --from=build /tmp/target/carts.jar /carts.jar
 
-
-<<<<<<< HEAD
-ENV	SERVICE_USER=myuser \
-	SERVICE_UID=10001 \
-	SERVICE_GROUP=mygroup \
-	SERVICE_GID=10001
-
-RUN	addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} && \
-	adduser -g "${SERVICE_NAME} user" -D -H -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} && \
-	apk add --update libcap && \
-	mkdir /lib64 && \
-	ln -s /usr/lib/jvm/java-1.8-openjdk/jre/lib/amd64/server/libjvm.so /lib/libjvm.so && \
-	ln -s /usr/lib/jvm/java-1.8-openjdk/lib/amd64/jli/libjli.so /lib/libjli.so && \
-	setcap 'cap_net_bind_service=+ep' $(readlink -f $(which java))
-
-
-RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./carts.jar
+run chmod a+rx ./carts.jar
 
 USER ${SERVICE_USER}
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]
-=======
-ENV     SERVICE_USER=myuser \
-        SERVICE_UID=10001 \
-        SERVICE_GROUP=mygroup \
-        SERVICE_GID=10001
+ARG BUILD_DATE
+ARG BUILD_VERSION
+ARG COMMIT
 
-RUN     addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} && \
-        adduser -g "${SERVICE_NAME} user" -D -H -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} && \
-        apk add --update libcap && \
-        mkdir /lib64 && \
-        ln -s /usr/lib/jvm/java-1.8-openjdk/jre/lib/amd64/server/libjvm.so /lib/libjvm.so && \
-        ln -s /usr/lib/jvm/java-1.8-openjdk/lib/amd64/jli/libjli.so /lib/libjli.so && \
-        setcap 'cap_net_bind_service=+ep' $(readlink -f $(which java))
+LABEL org.label-schema.vendor="awraad" \
+  org.label-schema.build-date="${BUILD_DATE}" \
+  org.label-schema.version="${BUILD_VERSION}" \
+  org.label-schema.name="Socks Shop: carts" \
+  org.label-schema.description="REST API for carts service" \
+  org.label-schema.url="https://github.com/microservices-demo/carts" \
+  org.label-schema.vcs-url="github.com:microservices-demo/carts.git" \
+  org.label-schema.vcs-ref="${COMMIT}" \
+  org.label-schema.schema-version="1.0"
 
-
-RUN     chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./carts.jar
-
-USER ${SERVICE_USER}
-
-<<<<<<< HEAD
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]                                                                                                 
-=======
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./carts.jar", "--port=80"]                                                                                             
->>>>>>> 53760e6a524047a5a7bc54d96b8f0633c3da4493
->>>>>>> ea082acef8e0c307f9609ac54ead91c384374b2c
+ENTRYPOINT ["/opt/java/openjdk/bin/java","-jar","./carts.jar", "--port=80"]

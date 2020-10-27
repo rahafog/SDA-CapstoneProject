@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: carts-pipelinerun 
+spec:
+  pipelineRef:
+    name: carts-pipeline
+  resources:
+    - name: carts-resource
+      resourceRef:
+        name: carts-resource
+  params:
+    - name: CONTEXT
+      value: "/workspace/carts-resource/carts"
+    - name: DOCKERFILE
+      value: "/workspace/carts-resource/carts/Dockerfile"
+    - name: pathToYamlFile
+      value: "carts-resource/carts/carts-dep.yaml"
+    - name: imageUrl
+      value: "rahafog1/carts"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "rahafog1/carts"
+      
+  serviceAccountName: docker1
