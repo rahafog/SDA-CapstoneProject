@@ -1,6 +1,9 @@
 install-tekton:
 	kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 
+namespaces:
+	kubectl apply -f ./namespaces.yaml
+
 front-end-service:
 	kubectl create -f ./front-end/resource.yaml -n test
 	kubectl create -f ./front-end/task.yaml -n test
