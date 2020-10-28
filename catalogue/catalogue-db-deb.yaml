@@ -5,7 +5,7 @@ metadata:
 spec:
   resources:
     inputs:
-    - name: catalogue-db-resource
+    - name: catalogue-resource
       type: git
   params:
   - name: pathToYamlFile-db

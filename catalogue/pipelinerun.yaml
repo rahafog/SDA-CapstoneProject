@@ -22,7 +22,7 @@ spec:
     - name: imageTag
       value: "latest"
     - name: pathToYamlFile-db
-      value: "catalogue-resource/catalogue/catalogue-db-dep.yaml"
+      value: "catalogue-resource/catalogue/catalogue-dep.yaml"
     - name: imageUrl-db
       value: "rahafog1/catalogue-db"
     - name: imageTag-db
