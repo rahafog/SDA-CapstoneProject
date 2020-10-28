@@ -43,3 +43,24 @@ user-service:
 	kubectl create -f ./user/task-deployment.yaml -n test
 	kubectl create -f ./user/pipeline.yaml -n test
 	kubectl create -f ./user/pipelinerun.yaml -n test
+
+payment-service:
+	kubectl create -f ./payment/resource.yaml -n test
+	kubectl create -f ./payment/task.yaml -n test
+	kubectl create -f ./payment/task-deployment.yaml -n test
+	kubectl create -f ./payment/pipeline.yaml -n test
+	kubectl create -f ./payment/pipelinerun.yaml -n test
+
+shipping-service:
+	kubectl create -f ./shipping/resource.yaml -n test
+	kubectl create -f ./shipping/task.yaml -n test
+	kubectl create -f ./shipping/task-deployment.yaml -n test
+	kubectl create -f ./shipping/pipeline.yaml -n test
+	kubectl create -f ./shipping/pipelinerun.yaml -n test
+
+queue-master:
+	kubectl create -f ./queue-master/resource.yaml -n test
+	kubectl create -f ./queue-master/task.yaml -n test
+	kubectl create -f ./queue-master/task-deployment.yaml -n test
+	kubectl create -f ./queue-master/pipeline.yaml -n test
+	kubectl create -f ./queue-master/pipelinerun.yaml -n test
