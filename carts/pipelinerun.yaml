@@ -10,17 +10,21 @@ spec:
       resourceRef:
         name: carts-resource
   params:
-    - name: CONTEXT
-      value: "/workspace/carts-resource/carts"
-    - name: DOCKERFILE
-      value: "/workspace/carts-resource/carts/Dockerfile"
+    - name: IMAGE-db
+      value: "rahafog1/carts-db"
+    - name: IMAGE
+      value: "rahafog1/carts"
     - name: pathToYamlFile
       value: "carts-resource/carts/carts-dep.yaml"
     - name: imageUrl
       value: "rahafog1/carts"
     - name: imageTag
       value: "latest"
-    - name: IMAGE
-      value: "rahafog1/carts"
+    - name: pathToYamlFile-db
+      value: "carts-resource/carts/carts-dep.yaml"
+    - name: imageUrl-db
+      value: "rahafog1/carts-db"
+    - name: imageTag-db
+      value: "latest"
       
   serviceAccountName: docker1
