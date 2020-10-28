@@ -34,3 +34,12 @@ catalogue-servive:
 	kubectl create -f ./catalogue/task-deployment.yaml -n test
 	kubectl create -f ./catalogue/pipeline.yaml -n test
 	kubectl create -f ./catalogue/pipelinerun.yaml -n test
+
+user-service:
+	kubectl create -f ./user/resource.yaml -n test
+	kubectl create -f ./user/task-db.yaml -n test
+	kubectl create -f ./user/task-db-deployment.yaml -n test
+	kubectl create -f ./user/task.yaml -n test
+	kubectl create -f ./user/task-deployment.yaml -n test
+	kubectl create -f ./user/pipeline.yaml -n test
+	kubectl create -f ./user/pipelinerun.yaml -n test
