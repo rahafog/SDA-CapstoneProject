@@ -7,8 +7,13 @@ RUN mkdir -p /data/db-users \
     && chown -R mongodb:mongodb /data/db-users
 RUN chmod +x /tmp/scripts/mongo_create_insert.sh
 RUN su - mongodb && mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db-users  \
+<<<<<<< HEAD
     && /tmp/scripts/mongo_create_insert.sh
 
+=======
+    && /tmp/scripts/mongo_create_insert.sh 
+    
+>>>>>>> 033db86c44e5b76622584f7870b2c211fbd03572
 RUN chown -R mongodb /data/db-users
 
 # Make the new dir a VOLUME to persist it
