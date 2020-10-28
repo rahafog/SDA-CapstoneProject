@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: orders-pipelinerun 
+spec:
+  pipelineRef:
+    name: orders-pipeline
+  resources:
+    - name: orders-resource
+      resourceRef:
+        name: orders-resource
+  params:
+    - name: IMAGE-db
+      value: "rahafog1/orders-db"
+    - name: IMAGE
+      value: "rahafog1/orders"
+    - name: pathToYamlFile
+      value: "orders-resource/orders/orders-dep.yaml"
+    - name: imageUrl
+      value: "rahafog1/orders"
+    - name: imageTag
+      value: "latest"
+    - name: pathToYamlFile-db
+      value: "orders-resource/orders/orders-dep.yaml"
+    - name: imageUrl-db
+      value: "rahafog1/orders-db"
+    - name: imageTag-db
+      value: "latest"
+      
+  serviceAccountName: docker1
