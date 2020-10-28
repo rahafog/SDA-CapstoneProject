@@ -1,0 +1,31 @@
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: user-pipelinerun 
+spec:
+  pipelineRef:
+    name: user-pipeline
+  resources:
+    - name: user-resource
+      resourceRef:
+        name: user-resource
+  params:
+    - name: IMAGE-db
+      value: "rahafog1/user-db"
+    - name: IMAGE
+      value: "rahafog1/user"
+    - name: pathToYamlFile
+      value: "user-resource/user/user-dep.yaml"
+    - name: imageUrl
+      value: "rahafog1/user"
+    - name: imageTag
+      value: "latest"
+    - name: pathToYamlFile-db
+      value: "user-resource/user/user-dep.yaml"
+    - name: imageUrl-db
+      value: "rahafog1/user-db"
+    - name: imageTag-db
+      value: "latest"
+      
+  serviceAccountName: docker1

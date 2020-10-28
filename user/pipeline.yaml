@@ -1,0 +1,91 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: user-pipeline
+spec:
+  resources:
+    - name: user-resource
+      type: git
+  params:
+    - name: IMAGE
+      description: Name (reference) of the image to build.
+      type: string
+    - name: IMAGE-db
+      description: Name (reference) of the database image to build.
+      type: string
+    - name: pathToYamlFile
+      description: The path to the yaml file to deploy
+      type: string
+    - name: imageUrl
+      description: Url of image repository
+      type: string
+    - name: imageTag
+      description: Tag to apply to the built image
+      type: string
+    - name: pathToYamlFile-db
+      description: The path to the database yaml file to deploy
+      type: string
+    - name: imageUrl-db
+      description: Url of image repository
+      type: string
+    - name: imageTag-db
+      description: Tag to apply to the image
+      type: string
+  tasks:
+  - name: build-db
+    taskRef: 
+      name: user-db
+    params:
+      - name:  IMAGE
+        value: "$(params.IMAGE-db)"
+    resources:
+      inputs: 
+        - name: user-resource
+          resource: user-resource
+  - name: run-db
+    taskRef: 
+      name: user-db-deploy
+    runAfter:
+      - build-db
+    params:
+      - name: pathToYamlFile-db
+        value:  "$(params.pathToYamlFile-db)"
+      - name: imageUrl-db
+        value: "$(params.imageUrl-db)"
+      - name: imageTag-db
+        value: "$(params.imageTag-db)"
+    resources: 
+      inputs: 
+        - name: user-resource
+          resource: user-resource
+  - name: build-push-image
+    taskRef: 
+      name: user
+    runAfter:
+      - build-db      
+      - run-db
+    params:
+      - name: IMAGE
+        value: "$(params.IMAGE)"
+    resources:
+      inputs:
+        - name: user-resource
+          resource: user-resource
+  - name: deploy-to-cluster
+    taskRef: 
+      name: user-deploy
+    runAfter:
+      - build-db
+      - run-db
+      - build-push-image
+    params:
+      - name: pathToYamlFile
+        value:  "$(params.pathToYamlFile)"
+      - name: imageUrl
+        value: "$(params.imageUrl)"
+      - name: imageTag
+        value: "$(params.imageTag)"
+    resources:
+      inputs: 
+        - name: user-resource
+          resource: user-resource

@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: user-db-runner
+spec:
+  serviceAccountName: docker1
+  taskRef:
+    name: user-db
+  params:
+  - name: IMAGE
+    value: "rahafog1/user-db"
+  resources:
+    inputs :  
+    - name: user-resource
+      resourceRef:  
+        name: user-resource
