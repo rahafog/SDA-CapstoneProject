@@ -4,6 +4,12 @@ install-tekton:
 namespaces:
 	kubectl create -f ./namespaces.yaml
 
+roles:
+        kubectl apply -f ./serviceaccount.yaml
+        kubectl apply -f ./role.yaml
+        kubectl apply -f ./role-binding.yaml
+
+
 front-end-service:
 	kubectl create -f ./front-end/resource.yaml -n test
 	kubectl create -f ./front-end/task.yaml -n test
