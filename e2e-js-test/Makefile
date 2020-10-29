@@ -31,6 +31,7 @@ build-e2e:
 	kubectl apply -f ./task.yaml -n test
 	kubectl apply -f ./run-task.yaml -n test
 	kubectl apply -f ./task-deployment.yaml -n test
+	kubectl apply -f ./prod-task.yaml -n test
 	kubectl apply -f ./pipline.yaml -n test
 	kubectl apply -f ./pipelinerun.yaml -n test
 
@@ -39,6 +40,7 @@ e2e-down:
 	kubectl delete -f ./task.yaml -n test
 	kubectl delete -f ./run-task.yaml -n test
 	kubectl delete -f ./task-deployment.yaml -n test
+	kubectl delete -f ./prod-task.yaml -n test
 	kubectl delete -f ./pipline.yaml -n test
 	kubectl delete -f ./pipelinerun.yaml -n test
 

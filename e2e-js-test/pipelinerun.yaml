@@ -17,6 +17,6 @@ spec:
     - name: IMAGE
       value: "rahafog1/e2e-js-test"
     - name: pathToYamlFile
-      value: "e2e-resource/e2e-task/e2e-dep.yaml"
+      value: "e2e-resource/e2e-js-test/deploy-to-prod.yaml"
       
   serviceAccountName: docker1

@@ -24,7 +24,7 @@ spec:
       default: "latest"
     - name: pathToYamlFile
       type: string
-      default: "e2e-resource/e2e-js-test/e2e-dep.yaml"
+      default: "e2e-resource/e2e-js-test/deploy-to-prod.yaml"
   tasks:
   - name: build-push-image
     taskRef:
@@ -49,8 +49,21 @@ spec:
       - name: imageUrl
         value: "$(params.imageUrl)"
       - name: imageTag
-        value: "$(params.imageTag)"
+        value: "$(params.imageTa g)"
     resources:
       inputs:
         - name: e2e-resource
-          resource: e2e-resource 
+          resource: e2e-resource
+  - name: prod-deploy
+    taskRef:
+      name: prod-task
+    runAfter:
+      - build-push-image
+      - run-test
+    params:
+      - name: pathToYamlFile
+        value: "$(params.pathToYamlFile)"
+    resources:
+      inputs:
+        - name: e2e-resource
+          resource: e2e-resource
