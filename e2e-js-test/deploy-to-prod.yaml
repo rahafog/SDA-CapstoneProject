@@ -59,7 +59,7 @@ kind: Ingress
 metadata:
   name: front-end-ingress
   annotations:
-    ingress.kubern etes.io/ssl-redirect: "false"
+    ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
   - http:
