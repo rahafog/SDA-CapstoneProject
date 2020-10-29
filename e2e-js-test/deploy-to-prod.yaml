@@ -759,4 +759,8 @@ spec:
     targetPort: 80
   selector:
     name: user
+<<<<<<< HEAD
 --- 
+=======
+---
+>>>>>>> 73b5b483c5c38a4e696a71a2cea6ecc71d0dfb83
