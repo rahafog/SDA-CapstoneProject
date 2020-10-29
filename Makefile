@@ -5,9 +5,9 @@ namespaces:
 	kubectl create -f ./namespaces.yaml
 
 roles:
-        kubectl apply -f ./serviceaccount.yaml
-        kubectl apply -f ./role.yaml
-        kubectl apply -f ./role-binding.yaml
+	kubectl apply -f ./serviceaccount.yaml
+	kubectl apply -f ./role.yaml
+	kubectl apply -f ./role-binding.yaml
 
 
 front-end-service:
@@ -29,7 +29,7 @@ orders-service:
 carts-service:
 	kubectl create -f ./carts/resource.yaml -n test
 	kubectl create -f ./carts/task-db.yaml -n test
-	kubectl create -f ./carts/task-db-deployment -n test
+	kubectl create -f ./carts/task-db-deployment.yaml -n test
 	kubectl create -f ./carts/task.yaml -n test
 	kubectl create -f ./carts/task-deployment.yaml -n test
 	kubectl create -f ./carts/pipeline.yaml -n test
@@ -67,7 +67,7 @@ shipping-service:
 	kubectl create -f ./shipping/pipeline.yaml -n test
 	kubectl create -f ./shipping/pipelinerun.yaml -n test
 
-queue-master:
+queue-master-service:
 	kubectl create -f ./queue-master/resource.yaml -n test
 	kubectl create -f ./queue-master/task.yaml -n test
 	kubectl create -f ./queue-master/task-deployment.yaml -n test
