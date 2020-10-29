@@ -1,0 +1,56 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: e2e-pipeline
+spec:
+  resources:
+    - name: e2e-resource
+      type: git
+  params:
+    - name: IMAGE
+      type: string
+      default: "rahafog1/e2e-js-test"
+    - name: DOCKERFILE
+      type: string
+      default: "/workspace/e2e-resource/e2e-js-test/Dockerfile"
+    - name: CONTEXT
+      type: string
+      default: "/workspace/e2e-resource/e2e-js-test"
+    - name: imageUrl
+      type: string
+      default: "rahafog1/e2e-js-test"
+    - name: imageTag
+      type: string
+      default: "latest"
+    - name: pathToYamlFile
+      type: string
+      default: "e2e-resource/e2e-js-test/e2e-dep.yaml"
+  tasks:
+  - name: build-push-image
+    taskRef:
+      name: e2e-js-test
+    params:
+      - name: IMAGE
+        value: "$(params.IMAGE)"
+      - name: DOCKERFILE
+        value: "$(params.DOCKERFILE)"
+      - name: CONTEXT
+        value: "$(params.CONTEXT)"
+    resources:
+      inputs:
+        - name: e2e-resource
+          resource: e2e-resource
+  - name: run-test
+    taskRef:
+      name: e2e-run
+    runAfter:
+      - build-push-image
+    params:
+      - name: imageUrl
+        value: "$(params.imageUrl)"
+      - name: imageTag
+        value: "$(params.imageTag)"
+    resources:
+      inputs:
+        - name: e2e-resource
+          resource: e2e-resource 

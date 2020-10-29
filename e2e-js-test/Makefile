@@ -26,3 +26,20 @@ upgrade:
 	docker run -it --rm -v "$$(pwd)":/app -w /app node4 jscodeshift -t tmp/sinon-codemod/extract-calls-fake.js *.js
 
 
+build-e2e:
+	kubectl apply -f ./resource.yaml -n test
+	kubectl apply -f ./task.yaml -n test
+	kubectl apply -f ./run-task.yaml -n test
+	kubectl apply -f ./task-deployment.yaml -n test
+	kubectl apply -f ./pipline.yaml -n test
+	kubectl apply -f ./pipelinerun.yaml -n test
+
+e2e-down:
+	kubectl delete -f ./resource.yaml -n test
+	kubectl delete -f ./task.yaml -n test
+	kubectl delete -f ./run-task.yaml -n test
+	kubectl delete -f ./task-deployment.yaml -n test
+	kubectl delete -f ./pipline.yaml -n test
+	kubectl delete -f ./pipelinerun.yaml -n test
+
+
