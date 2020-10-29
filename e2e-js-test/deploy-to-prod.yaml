@@ -101,7 +101,7 @@ spec:
         - containerPort: 9090
           name: exporter
       nodeSelector:
-        beta.kubern etes.io/os: linux
+        beta.kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
@@ -373,7 +373,7 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kuberne tes.io/os: linux
+        beta.kubernetes.io/os: linux
 ---
 apiVersion: v1
 kind: Service
