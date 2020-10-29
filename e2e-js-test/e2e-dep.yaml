@@ -18,6 +18,6 @@ spec:
       - name: e2e-js-test
         image: __IMAGE__
         command: ["/bin/sh"]
-        args: ["-c","/e2e-js-test/runner.sh"] 
+        args: ["-c","/e2e-test/runner.sh"] 
       nodeSelector:
         beta.kubernetes.io/os: linux
