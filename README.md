@@ -19,7 +19,7 @@
 
 **Here is my project's progress:** 
 
-https://github.com/rahafog/level3project/blob/main/progress/tasks.md
+[Tasks](https://github.com/rahafog/level3project/blob/main/progress/tasks.md)
 
-https://github.com/rahafog/level3project/blob/main/progress/dairy.md
+[Dairy](https://github.com/rahafog/level3project/blob/main/progress/dairy.md)
 
