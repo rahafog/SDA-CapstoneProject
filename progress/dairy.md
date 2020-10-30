@@ -18,3 +18,15 @@ Start using k3d and tekton to automate the build and push each service's image t
 Day 6:
 Complete the working in tekton and try to solve the errors.
 
+Day 7:
+
+Day 8:
+
+Day 9:
+
+Day 10:
+
+Day 11:
+
+
+
