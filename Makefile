@@ -19,6 +19,7 @@ front-end-service:
 	kubectl create -f ./front-end/task-deployment.yaml -n test
 	kubectl create -f ./front-end/pipeline.yaml -n test
 	kubectl create -f ./front-end/pipelinerun.yaml -n test
+	kubectl create -f ./front-end/font-end-ingress.yaml -n test
 
 orders-service:
 	kubectl create -f ./orders/resource.yaml -n test
