@@ -1,5 +1,5 @@
 
-up:namespaces front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service 
+up:namespaces roles front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service build-e2e
 
 install-tekton:
 	kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
