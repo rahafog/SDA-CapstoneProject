@@ -2,6 +2,7 @@
 **platform:** 
 
 -AWS-Instance
+
 -K3D
 
 **kubernetes CI/CD tool :** 
@@ -11,9 +12,11 @@
 **Logging & Monitoring tools:** 
 
 -elf
+
 -grafana
 
 **Here is my project's progress:** 
 
-./progress/task.md
-./progress/dairy.md
+https://github.com/rahafog/level3project.git/progress/task/md
+
+https://github.com/rahafog/level3project.git/progress/dairy.md
