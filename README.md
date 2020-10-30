@@ -1,4 +1,5 @@
-The automation build and deploy of socks shop microservic application that use:
+This project will build and deploy the socks shop microservic application that use the following:
+
 platform:
 -AWS-Instance 
 -K3D 
@@ -11,4 +12,5 @@ Logging&Monotiring tools:
 -grafana
 
 Here is my project's progress:
+./progress
 
