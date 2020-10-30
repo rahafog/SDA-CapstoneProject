@@ -1,4 +1,3 @@
-**This project will build and deploy the socks shop microservice application that use the following:**
 
 **platform:** 
 -AWS-Instance
@@ -9,7 +8,8 @@
 
 **Logging & Monitoring tools:** 
 -elf
- -grafana
+-grafana
 
 **Here is my project's progress:** 
--
+progress/task.md
+progress/dairy.md
