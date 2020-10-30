@@ -19,14 +19,31 @@ Day 6:
 Complete the working in tekton and try to solve the errors.
 
 Day 7:
+all the services images were pushed automatically using tekton.
 
 Day 8:
+create a deployment and service yaml files for each service.
 
 Day 9:
+complete all yaml's files.
 
 Day 10:
+apply all the yaml's files manually to make sure that they work corecctelly. 
 
 Day 11:
+star using tekton to deploy the yaml's files .
+
+Day 12:
+going on with tekton and create the pipeline for each service that will first build and push the service image to the dockerhub and then deploy the yaml's filed in the test namespace .
+
+Day 13:
+still working with tekton .
+
+Day 14:
+add the prod namespace to the pipeline in order to deploy the services to it after they pass the test namespace.
+
+Day 15:
+create elf and prometheous logging and monitering tools .
 
 
 
