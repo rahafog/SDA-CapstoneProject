@@ -1,4 +1,4 @@
-up:front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service 
+up:namespaces front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service 
 
 
 install-tekton:
@@ -8,9 +8,9 @@ namespaces:
 	kubectl create -f ./namespaces.yaml
 
 roles:
-	kubectl apply -f ./serviceaccount.yaml
-	kubectl apply -f ./role.yaml
-	kubectl apply -f ./role-binding.yaml
+	kubectl apply -f ./serviceaccount.yaml -n test
+	kubectl apply -f ./role.yaml -n test
+	kubectl apply -f ./role-binding.yaml -n test
 
 
 front-end-service:
@@ -76,3 +76,13 @@ queue-master-service:
 	kubectl create -f ./queue-master/task-deployment.yaml -n test
 	kubectl create -f ./queue-master/pipeline.yaml -n test
 	kubectl create -f ./queue-master/pipelinerun.yaml -n test
+
+build-e2e:
+	kubectl create -f ./resource.yaml -n test
+	kubectl create -f ./task.yaml -n test
+	kubectl create -f ./run-task.yaml -n test
+	kubectl create -f ./task-deployment.yaml -n test
+	kubectl create -f ./prod-task.yaml -n test
+	kubectl create -f ./pipline.yaml -n test
+	kubectl create -f ./pipelinerun.yaml -n test
+
