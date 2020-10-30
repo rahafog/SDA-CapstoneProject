@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-up:namespaces front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service 
-=======
-up: namespaces front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service 
->>>>>>> 129e789f73f7016daf0f1a74aae8f859c8f32b10
 
+up:namespaces front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service 
 
 install-tekton:
 	kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
