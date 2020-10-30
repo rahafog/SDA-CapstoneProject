@@ -1,4 +1,4 @@
-up:front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service 
+up: namespaces front-end-service orders-service carts-service catalogue-service user-service payment-service shipping service queue-master-service 
 
 
 install-tekton:
@@ -8,9 +8,9 @@ namespaces:
 	kubectl create -f ./namespaces.yaml
 
 roles:
-	kubectl apply -f ./serviceaccount.yaml
-	kubectl apply -f ./role.yaml
-	kubectl apply -f ./role-binding.yaml
+	kubectl apply -f ./serviceaccount.yaml -n test
+	kubectl apply -f ./role.yaml -n test
+	kubectl apply -f ./role-binding.yaml -n test
 
 
 front-end-service:
