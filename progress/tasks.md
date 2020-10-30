@@ -23,3 +23,6 @@ Day 11,12,13,14:
 
 Day 15:
 ![image](https://user-images.githubusercontent.com/46724031/97719670-68e49100-1ad8-11eb-9a57-7c76854f9778.png)
+
+Day 16:
+![image](https://user-images.githubusercontent.com/46724031/97719849-9b8e8980-1ad8-11eb-8ab0-4bf271ef0bb9.png)
