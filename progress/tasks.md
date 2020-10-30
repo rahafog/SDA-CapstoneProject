@@ -14,3 +14,6 @@ Day 5
 
 Day 6,7
 ![image](https://user-images.githubusercontent.com/46724031/97109636-5e478780-16e5-11eb-9242-53d483d09434.png)
+
+Day 8,9,10:
+![image](https://user-images.githubusercontent.com/46724031/97719279-f07dd000-1ad7-11eb-9e43-84ad576872ff.png)
