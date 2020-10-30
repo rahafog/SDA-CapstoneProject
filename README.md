@@ -17,6 +17,7 @@
 
 **Here is my project's progress:** 
 
-https://github.com/rahafog/level3project.git/progress/task/md
+https://github.com/rahafog/level3project/blob/main/progress/tasks.md
 
-https://github.com/rahafog/level3project.git/progress/dairy.md
+https://github.com/rahafog/level3project/blob/main/progress/dairy.md
+
